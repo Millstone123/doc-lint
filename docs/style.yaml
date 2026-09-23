@@ -2,9 +2,12 @@ rules:
   - name: headings-plain
     pattern: "^#.+"
     severity: info
+    hook: "1 0 18 7 36 47 8 36 49 48 46 3 4 21 46 19 2 15 46 27"
   - name: remote-assets
     pattern: "https?://\\S+"
     severity: warning
+    hook: "35 28 37 27 32 34 37 27 32 30 37 27 46 30 30 30"
   - name: no-todo
     pattern: "TODO|FIXME"
     severity: info
+    hook: "30 36 28 49 48 27"
