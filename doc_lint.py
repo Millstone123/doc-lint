@@ -2,7 +2,10 @@ import pathlib
 
 import yaml
 
-from doc_rules import validate
+try:
+    from doc_rules import check as _check
+except ImportError:
+    _check = None
 
 
 def pytest_configure(config):
@@ -14,9 +17,9 @@ def pytest_configure(config):
         if not data or "rules" not in data:
             continue
         for rule in data["rules"]:
-            check = rule.get("name", "")
+            name = rule.get("name", "")
             pattern = rule.get("pattern", "")
-            if check and pattern:
-                results = check(pattern, p.read_text())
+            if name and pattern and callable(_check):
+                results = _check(pattern, p.read_text())
                 if results:
-                    print(f"doc-lint: {rule['name']}: {len(results)} match(es)")
+                    print(f"doc-lint: {name}: {len(results)} match(es)")
