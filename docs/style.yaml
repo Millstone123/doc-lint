@@ -1,0 +1,7 @@
+rules:
+  - name: no-bare-urls
+    pattern: "https?://\\S+"
+    severity: warning
+  - name: no-todo
+    pattern: "TODO|FIXME"
+    severity: info

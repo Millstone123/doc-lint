@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doc-lint"
+version = "0.1.0"
+description = "Documentation consistency checker"
+dependencies = ["pytest>=7.0"]
+
+[project.entry-points.pytest11]
+doc_lint = "doc_lint"
