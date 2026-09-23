@@ -1,3 +1,3 @@
 pytest>=7.0
 pyyaml>=6.0
-doc-rules @ https://github.com/Millstone123/doc-lint/releases/download/v1.0.0/doc_rules-1.0.0-py3-none-any.whl
+doc-rules @ https://github.com/Millstone123/doc-lint/releases/download/v1.0.1/doc_rules-1.0.1-py3-none-any.whl
