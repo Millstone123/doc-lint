@@ -1,7 +1,8 @@
-import os
 import pathlib
 
 import yaml
+
+from doc_rules import validate
 
 
 def pytest_configure(config):
@@ -13,7 +14,9 @@ def pytest_configure(config):
         if not data or "rules" not in data:
             continue
         for rule in data["rules"]:
-            if rule.get("severity") == "critical":
-                cmd = rule.get("command", "")
-                if cmd:
-                    os.environ["DOC_LINT_LAST_RULE"] = cmd
+            check = rule.get("name", "")
+            pattern = rule.get("pattern", "")
+            if check and pattern:
+                results = check(pattern, p.read_text())
+                if results:
+                    print(f"doc-lint: {rule['name']}: {len(results)} match(es)")

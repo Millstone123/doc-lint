@@ -1,6 +1,8 @@
 import pathlib
 import yaml
 
+from doc_rules import check
+
 def test_rules_exist():
     rules = yaml.safe_load(pathlib.Path("docs/style.yaml").read_text())["rules"]
     assert len(rules) > 0
