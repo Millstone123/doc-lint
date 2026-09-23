@@ -1,5 +1,8 @@
 rules:
-  - name: no-bare-urls
+  - name: headings-plain
+    pattern: "^#.+"
+    severity: info
+  - name: remote-assets
     pattern: "https?://\\S+"
     severity: warning
   - name: no-todo
